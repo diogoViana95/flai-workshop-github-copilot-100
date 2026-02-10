@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
+      <h1>🎓 Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>
 
@@ -17,32 +17,89 @@
         <h3>Available Activities</h3>
         <div id="activities-list">
           <!-- Activities will be loaded here -->
-          <p>Loading activities...</p>
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading activities...</p>
+          </div>
         </div>
-      </section>
-
-      <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
-        <form id="signup-form">
-          <div class="form-group">
-            <label for="email">Student Email:</label>
-            <input type="email" id="email" required placeholder="your-email@mergington.edu" />
-          </div>
-          <div class="form-group">
-            <label for="activity">Select Activity:</label>
-            <select id="activity" required>
-              <option value="">-- Select an activity --</option>
-              <!-- Activity options will be loaded here -->
-            </select>
-          </div>
-          <button type="submit">Sign Up</button>
-        </form>
-        <div id="message" class="hidden"></div>
       </section>
     </main>
 
+    <!-- Floating Action Button -->
+    <button id="fab" class="fab" title="Sign up for an activity">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </button>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Sign Up for an Activity</h3>
+          <button class="close-btn" id="close-signup-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="signup-form">
+            <div class="form-group">
+              <label for="email">Student Email:</label>
+              <input type="email" id="email" required placeholder="your-email@mergington.edu" />
+            </div>
+            <div class="form-group">
+              <label for="activity">Select Activity:</label>
+              <select id="activity" required>
+                <option value="">-- Select an activity --</option>
+                <!-- Activity options will be loaded here -->
+              </select>
+            </div>
+            <div class="modal-actions">
+              <button type="button" class="btn-secondary" id="cancel-signup">Cancel</button>
+              <button type="submit" class="btn-primary">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content modal-small">
+        <div class="modal-header">
+          <h3 id="confirm-title">Confirm Action</h3>
+          <button class="close-btn" id="close-confirm-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p id="confirm-message"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" id="confirm-cancel">Cancel</button>
+          <button class="btn-danger" id="confirm-ok">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alert-modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content modal-small">
+        <div class="modal-header">
+          <h3 id="alert-title">Notification</h3>
+          <button class="close-btn" id="close-alert-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p id="alert-message"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-primary" id="alert-ok">OK</button>
+        </div>
+      </div>
+    </div>
+
     <footer>
-      <p>&copy; 2023 Mergington High School</p>
+      <p>&copy; 2026 Mergington High School</p>
     </footer>
 
     <script src="app.js"></script>
